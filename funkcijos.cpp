@@ -2,7 +2,7 @@
 
 string sukurti_regex_is_failo(const string& filename) {
     ifstream file(filename);
-    string domainEndings = "(asia";
+    string domainEndings = "(asia"; // reikia pradini uzsirasyti kitaip reiketu labai sudetinga nusirasyma daryti del regex reikalavimo (aa | aa | aa)
     string line;
     while (getline(file, line)) {
         domainEndings += "|" + line;
@@ -17,7 +17,7 @@ void nuskaityti(ifstream &fd , map<string , size_t> &zodziu_sk , map<string , ma
     string eilute, zod;
     unsigned int eilNr = 1;
     int t=0;
-    string domainEndings = sukurti_regex_is_failo("tlds.txt");
+    string domainEndings = sukurti_regex_is_failo("tlds.txt"); // pabaigos
     while(!fd.eof()) {
         getline(fd, eilute);
         stringstream line(eilute);
